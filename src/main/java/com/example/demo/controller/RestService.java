@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.MeetingRoom;
 import com.example.demo.entity.User;
+import com.example.demo.repository.RoomRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.services.CheckLogin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class RestService {
 
     @Autowired
     CheckLogin checkLogin;
+
+    @Autowired
+    RoomRepository roomRepository;
 
     @RequestMapping("/ciao")
     @ResponseBody
@@ -54,6 +59,17 @@ public class RestService {
         else
                 return false;
     }
+
+    @RequestMapping("/showRoom/{idRoom}/{year}/{month}/{day}")
+    @ResponseBody
+    public List<MeetingRoom> checK(){
+        return roomRepository.findAllMeetingRoom();
+    }
+    /*public List<MeetingRoom> showTimeTableRoom(@PathVariable("idRoom") Integer idRoom, @PathVariable("year") Integer year, @PathVariable("month") Integer month, @PathVariable("day") Integer day){
+
+        return roomRepository.findAllMeetingRoom();
+
+    }*/
 
 
 
