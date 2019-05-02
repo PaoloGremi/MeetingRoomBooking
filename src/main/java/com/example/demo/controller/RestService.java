@@ -31,10 +31,10 @@ public class RestService {
     }
 
 
-    @RequestMapping("")
+    /*@RequestMapping("")
     public String home(){
         return "benvenuto nella home";
-    }
+    }*/
 
     @RequestMapping("/loginHomePage/{email}/{password}")
     @ResponseBody
